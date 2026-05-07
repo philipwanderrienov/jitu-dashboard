@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="jitu-dashboard.client/jitu-dashboard.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="jitu-dashboard.Server/jitu-dashboard.Server.csproj" />
+</Solution>

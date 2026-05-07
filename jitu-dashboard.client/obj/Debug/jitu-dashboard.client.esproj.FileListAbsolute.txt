@@ -1,0 +1,2 @@
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.client\obj\Debug\jitu-dashboard.client.esproj.CoreCompileInputs.cache
+C:\Users\philip.wanderrienov\Music\jitu-dashboard\jitu-dashboard.client\obj\Debug\jitu-dashboard.client.esproj.CoreCompileInputs.cache
