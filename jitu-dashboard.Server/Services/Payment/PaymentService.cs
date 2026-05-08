@@ -10,13 +10,13 @@ public class PaymentService : IPaymentService
 {
     private readonly IPaymentRepository _paymentRepository;
 
-    public PaymentService(PaymentRepository paymentRepository)
+    public PaymentService(IPaymentRepository paymentRepository)
     {
         _paymentRepository = paymentRepository;
     }
 
     public async Task<IEnumerable<PaymentModel>> Retrieve()
     {
-        return await _paymentRepository.retrieve();
+        return await _paymentRepository.Retrieve();
     }
 }

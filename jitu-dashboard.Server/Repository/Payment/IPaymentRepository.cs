@@ -5,5 +5,5 @@ namespace jitu_dashboard.Server.Repository.Payment;
 
 public interface IPaymentRepository
 {
-    Task<IEnumerable<PaymentModel>> retrieve();
+    Task<IEnumerable<PaymentModel>> Retrieve();
 }

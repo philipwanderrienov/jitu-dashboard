@@ -1,20 +1,34 @@
+using Microsoft.EntityFrameworkCore;
+using jitu_dashboard.Server.DbContext;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
+var sqlServerConnectionString = builder.Configuration.GetConnectionString("SqlServerContext");
+if (string.IsNullOrWhiteSpace(sqlServerConnectionString))
+{
+    throw new InvalidOperationException("ConnectionStrings:SqlServerContext is missing or empty in appsettings.json.");
+}
+
+builder.Services.AddDbContext<JituDashboardContext>(options =>
+    options.UseSqlServer(sqlServerConnectionString));
+
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 app.UseDefaultFiles();
 app.MapStaticAssets();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    });
 }
 
 app.UseHttpsRedirection();

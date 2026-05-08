@@ -5,19 +5,25 @@ namespace jitu_dashboard.Server.Repository.Payment;
 
 public class PaymentRepository : IPaymentRepository
 {
-    public async Task<IEnumerable<PaymentModel>> retrieve()
-    {
-        // Simulate data retrieval with a delay
-        await Task.Delay(500); // Simulate async operation
+    private readonly EFRepository.IRepository<PaymentModel> _repository;
 
-        // Return a list of dummy payment data
-        // return Enumerable.Range(1, 5).Select(index => new PaymentModel
-        // {
-        //     Id = index,
-        //     Amount = Random.Shared.Next(100, 1000),
-        //     Date = DateTime.Now.AddDays(-index)
-        // })
-        // .ToArray();
-        return null;
+    public PaymentRepository(EFRepository.IRepository<PaymentModel> repository)
+    {
+        _repository = repository;
+    }
+
+    public async Task<IEnumerable<PaymentModel>> Retrieve()
+    {
+        IEnumerable<PaymentModel> listData = new List<PaymentModel>();
+
+        try
+        {
+            listData = await _repository.GetAllAsync();
+            return listData;
+        }
+        catch (Exception ex)
+        {
+            throw new ApplicationException(ex.Message);
+        }
     }
 }

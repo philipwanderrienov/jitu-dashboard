@@ -11,10 +11,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>10.*-*</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Configs\" />
+    <Folder Include="DbContext\" />
+    <Folder Include="EFRepository\" />
     <Folder Include="Message\" />
     <Folder Include="Message\Request\" />
     <Folder Include="Message\Response\" />
