@@ -1,0 +1,61 @@
+<div class="dash-root">
+  <div class="dash-header">
+    <h2 class="dash-title">Payment Dashboard</h2>
+
+    <div class="dash-meta">
+      <button
+        pButton
+        type="button"
+        class="p-button-sm"
+        label="Payment"
+        [class.p-button-outlined]="source !== 'payment'"
+        (click)="setSource('payment')"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        class="p-button-sm"
+        label="PaymentHistory"
+        [class.p-button-outlined]="source !== 'paymentHistory'"
+        (click)="setSource('paymentHistory')"
+      ></button>
+    </div>
+  </div>
+
+  <div class="dash-grid">
+    <p-card header="Amount Pie">
+      <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
+    </p-card>
+
+    <p-card [header]="'Grid (' + (source === 'payment' ? 'Payment' : 'PaymentHistory') + ')'">
+      <p-table [value]="displayedRows" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Trn</th>
+            <th>RelTrn</th>
+            <th>TxCode</th>
+            <th>TxTypeId</th>
+            <th>Priority</th>
+            <th>BusDate</th>
+            <th>Amount</th>
+            <th>Currency</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-row>
+          <tr>
+            <td>{{ row.trn }}</td>
+            <td>{{ row.relTrn }}</td>
+            <td>{{ row.txCode }}</td>
+            <td>{{ row.txTypeId }}</td>
+            <td>{{ row.priorityId }}</td>
+            <td>{{ row.busDate }}</td>
+            <td>{{ row.amount }}</td>
+            <td>{{ row.currency }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </div>
+</div>
