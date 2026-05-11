@@ -1,0 +1,191 @@
+.page {
+  width: 100%;
+}
+
+.page__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.page__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.page__subtitle {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.page__tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.page-tab {
+  border-radius: 8px !important;
+  padding: 10px 16px !important;
+  font-weight: 800 !important;
+  border: 1px solid transparent !important;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+.page-tab--active {
+  background: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  box-shadow: 0 1px 0 rgba(16, 185, 129, 0.12) inset;
+}
+
+/* Grid like the sample */
+.page__grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 18px;
+}
+
+@media (max-width: 980px) {
+  .page__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards/panels */
+.panel {
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(10, 20, 40, 0.04);
+  padding: 16px;
+  min-height: 160px;
+}
+
+.panel--table {
+  padding: 12px;
+}
+
+.panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.panel__header--row {
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.panel__title {
+  font-weight: 900;
+  letter-spacing: -0.1px;
+  font-size: 14px;
+}
+
+.panel__subtitle-small {
+  font-size: 11px;
+  color: #6b7280;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.panel__meta {
+  font-size: 10px;
+  color: #9aa3b2;
+  font-weight: 800;
+  text-align: right;
+  line-height: 1.05;
+}
+
+.panel__meta-small {
+  font-size: 11px;
+  color: #c0c7d6;
+}
+
+.panel__icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #6b7280;
+  background: #ffffff;
+}
+
+.panel__body {
+  padding-top: 6px;
+}
+
+.panel__body--table {
+  margin-top: 8px;
+}
+
+/* Pie center alignment */
+.pie-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 0 2px 0;
+}
+
+/* Loader / No data */
+.panel__loading {
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.no-data {
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* PrimeNG table tweaks */
+:host ::ng-deep .p-table {
+  border: none !important;
+  background: transparent !important;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #6b7280;
+  font-weight: 900;
+  border-bottom: 1px solid #eef2f7;
+  background: transparent;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111827;
+  border-bottom: 1px solid #eef2f7;
+}
+
+:host ::ng-deep .p-paginator {
+  border: none !important;
+  background: transparent !important;
+}

@@ -1,0 +1,233 @@
+:host {
+  display: block;
+}
+
+/* Whole shell */
+.dash-shell {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #0b1220;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans",
+    "Liberation Sans", sans-serif;
+}
+
+/* Top bar */
+.dash-topbar {
+  height: 56px;
+  background: #ffffff;
+  border-bottom: 1px solid #e7eaf0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px 0 18px;
+}
+
+.dash-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.dash-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.dash-brand__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #0b3d1a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.dash-brand__name {
+  font-size: 14px;
+}
+
+.dash-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.dash-breadcrumb__sep {
+  color: #c0c4d0;
+}
+
+.dash-breadcrumb__current {
+  color: #6b7280;
+}
+
+/* Right side */
+.dash-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dash-topbar__bell {
+  font-size: 16px;
+  color: #0b1220;
+}
+
+.dash-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #eef2ff;
+}
+
+.dash-user-pill__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b1220;
+}
+
+.dash-user-pill__avatar {
+  width: 28px;
+  height: 24px;
+  background: #cfe0ff;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Whole page grid: sidebar (left) + main (right) */
+.dash-shell__grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .dash-shell__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar */
+.dash-sidebar {
+  background: #f8fafc;
+  border-right: 1px solid #e7eaf0;
+  padding: 18px 14px;
+
+  /* Sidebar fills from the top of the browser */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 4px 12px 4px;
+}
+
+/* Prevent brand from looking “broken” (sizing/align) */
+.dash-sidebar__brand .dash-brand__name {
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* Nav spacing below the brand */
+.dash-sidebar__nav {
+  display: grid;
+  gap: 10px;
+}
+
+.dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  color: #0b1220;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.dash-nav-item__icon {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Active item (matches green highlight feel) */
+.dash-nav-item.is-active {
+  background: #bdf7b2;
+  border-color: #9ce98a;
+}
+
+.dash-sidebar__profile {
+  margin-top: auto; /* pushes it to the bottom of the sidebar column */
+}
+
+.dash-avatar-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #eaf2ff;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.dash-avatar-pill__icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 12px;
+  color: #0b1220;
+}
+
+.dash-avatar-pill__name {
+  font-weight: 800;
+  font-size: 12px;
+  color: #0b1220;
+  line-height: 1.1;
+}
+
+.dash-avatar-pill__role {
+  font-weight: 700;
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+/* Content area */
+.dash-content {
+  padding: 22px 22px 0 22px;
+}
+
+/* Footer */
+.dash-footer {
+  margin-top: 16px;
+  text-align: center;
+  padding: 16px 0 20px 0;
+  color: #9aa3b2;
+  font-size: 11px;
+  font-weight: 700;
+}

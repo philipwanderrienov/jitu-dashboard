@@ -1,0 +1,119 @@
+<div class="page">
+  <div class="page__top">
+    <div>
+      <h1 class="page__title">Payment Dashboard</h1>
+      <div class="page__subtitle">Overview of transaction distribution and records</div>
+    </div>
+
+    <div class="page__tabs">
+      <button
+        pButton
+        type="button"
+        class="page-tab"
+        label="Payment"
+        [class.page-tab--active]="source === 'payment'"
+        (click)="setSource('payment')"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        class="page-tab"
+        label="PaymentHistory"
+        [class.page-tab--active]="source === 'paymentHistory'"
+        (click)="setSource('paymentHistory')"
+      ></button>
+    </div>
+  </div>
+
+  <div class="page__grid">
+    <section class="panel">
+      <div class="panel__header">
+        <div class="panel__title">
+          Amount
+          <div class="panel__subtitle-small">Distribution</div>
+        </div>
+        <div class="panel__meta">
+          AMOUNT<br /><span class="panel__meta-small">PIE</span>
+        </div>
+      </div>
+
+      <div class="panel__body">
+        <div class="pie-wrap">
+          <ng-container *ngIf="loading; else pieBody">
+            <div class="panel__loading">Loading...</div>
+          </ng-container>
+
+          <ng-template #pieBody>
+            <ng-container *ngIf="paymentTotalAmount > 0 || paymentHistoryTotalAmount > 0; else pieNoData">
+              <p-chart type="doughnut" [data]="pieData" [options]="pieOptions"></p-chart>
+            </ng-container>
+
+            <ng-template #pieNoData>
+              <div class="no-data">No data</div>
+            </ng-template>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="panel__legend">
+        <!-- Prime chart legend is controlled by Chart.js; this block keeps layout stable -->
+      </div>
+    </section>
+
+    <section class="panel panel--table">
+      <div class="panel__header panel__header--row">
+        <div>
+          <div class="panel__title">Transaction Grid</div>
+          <div class="panel__subtitle-small"> </div>
+        </div>
+
+        <div class="panel__icon" aria-hidden="true">
+          ?
+        </div>
+      </div>
+
+      <div class="panel__body panel__body--table">
+        <ng-container *ngIf="loading; else gridBody">
+          <div class="panel__loading">Loading...</div>
+        </ng-container>
+
+          <ng-template #gridBody>
+          <ng-container *ngIf="displayedRows.length > 0; else gridNoData">
+            <p-table [value]="displayedRows" [paginator]="true" [rows]="10">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>TRN</th>
+                  <th>RELTRN</th>
+                  <th>TXCODE</th>
+                  <th>TXTYPEID</th>
+                  <th>PRIORITY</th>
+                  <th>BUSDATE</th>
+                  <th>AMOUNT</th>
+                  <th>CURRENCY</th>
+                </tr>
+              </ng-template>
+
+              <ng-template pTemplate="body" let-row>
+                <tr>
+                  <td>{{ row?.trn }}</td>
+                  <td>{{ row?.relTrn }}</td>
+                  <td>{{ row?.txCode }}</td>
+                  <td>{{ row?.txTypeId }}</td>
+                  <td>{{ row?.priorityId }}</td>
+                  <td>{{ row?.busDate }}</td>
+                  <td>{{ row?.amount }}</td>
+                  <td>{{ row?.currency }}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </ng-container>
+
+          <ng-template #gridNoData>
+            <div class="no-data">No data</div>
+          </ng-template>
+        </ng-template>
+      </div>
+    </section>
+  </div>
+</div>

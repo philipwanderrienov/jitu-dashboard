@@ -1,0 +1,62 @@
+<div class="dash-shell">
+  <div class="dash-shell__grid">
+    <!-- Left sidebar column (spans full viewport height) -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar__brand">
+        <span class="dash-brand__mark">JD</span>
+        <span class="dash-brand__name">Jitu Dashboard</span>
+      </div>
+
+      <nav class="dash-sidebar__nav">
+        <a routerLink="/dashboard" routerLinkActive="is-active" class="dash-nav-item">
+          <i class="pi pi-th-large dash-nav-item__icon" aria-hidden="true"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a routerLink="/dashboard/settings" routerLinkActive="is-active" class="dash-nav-item">
+          <i class="pi pi-cog dash-nav-item__icon" aria-hidden="true"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar__profile">
+        <div class="dash-avatar-pill">
+          <div class="dash-avatar-pill__icon">US</div>
+          <div class="dash-avatar-pill__text">
+            <div class="dash-avatar-pill__name">UserProfile</div>
+            <div class="dash-avatar-pill__role">ADMINISTRATOR</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right content column -->
+    <div class="dash-main">
+      <header class="dash-topbar">
+        <div class="dash-topbar__left">
+          <div class="dash-breadcrumb">
+            <span class="dash-breadcrumb__sep">/</span>
+            <span class="dash-breadcrumb__current">Payment Dashboard</span>
+          </div>
+        </div>
+
+        <div class="dash-topbar__right">
+          <i class="pi pi-bell dash-topbar__bell" aria-hidden="true"></i>
+
+          <div class="dash-user-pill">
+            <span class="dash-user-pill__label">User</span>
+            <span class="dash-user-pill__avatar" aria-hidden="true"></span>
+          </div>
+        </div>
+      </header>
+
+      <main class="dash-content">
+        <router-outlet></router-outlet>
+      </main>
+
+      <footer class="dash-footer">
+        © {{ year }} JITU DASHBOARD · BUILT WITH FOREST ENTERPRISE SYSTEM
+      </footer>
+    </div>
+  </div>
+</div>
