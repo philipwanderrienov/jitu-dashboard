@@ -1,5 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using jitu_dashboard.Server.DbContext;
+using jitu_dashboard.Server.EFRepository;
+using jitu_dashboard.Server.Models;
+using jitu_dashboard.Server.Repository;
+using jitu_dashboard.Server.Repository.Payment;
+using jitu_dashboard.Server.Services.Payment;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +22,11 @@ builder.Services.AddDbContext<JituDashboardContext>(options =>
     options.UseSqlServer(sqlServerConnectionString));
 
 builder.Services.AddSwaggerGen();
+
+// Register repositories and services
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped(typeof(IPaymentRepository), typeof(PaymentRepository));
+builder.Services.AddScoped(typeof(IPaymentService), typeof(PaymentService));
 
 var app = builder.Build();
 

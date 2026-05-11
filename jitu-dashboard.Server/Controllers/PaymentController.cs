@@ -18,7 +18,8 @@ namespace jitu_dashboard.Server.Controllers
         }
 
         [HttpGet(Name = "retrievePayments")]
-        public async Task<IActionResult> Retrieve(RequestModel requestModel)
+        // public async Task<IActionResult> Retrieve(RequestModel requestModel)
+        public async Task<IActionResult> Retrieve()
         {
             //_logger.LogInformation("Call S4TransferOutright API :  Get transfer to STPG by Transaction Status.");
             ResponseModel model = new ResponseModel();

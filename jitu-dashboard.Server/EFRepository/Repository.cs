@@ -1,19 +1,18 @@
-using System;
+
 using Microsoft.EntityFrameworkCore;
+using jitu_dashboard.Server.DbContext;
 
 namespace jitu_dashboard.Server.EFRepository;
 
 public class Repository<T> : IRepository<T> where T : class
 {
     private readonly Microsoft.EntityFrameworkCore.DbContext _dbContext;
-    private readonly Microsoft.EntityFrameworkCore.DbSet<T> _entitySet;
+    private readonly DbSet<T> _entitySet;
 
-    public Repository(
-        Microsoft.EntityFrameworkCore.DbContext dbContext,
-        Microsoft.EntityFrameworkCore.DbSet<T> entitySet)
+    public Repository(JituDashboardContext dbContext)
     {
         _dbContext = dbContext;
-        _entitySet = entitySet;
+        _entitySet = dbContext.Set<T>();
     }
 
     public Microsoft.EntityFrameworkCore.DbSet<T> GetDbSet()
