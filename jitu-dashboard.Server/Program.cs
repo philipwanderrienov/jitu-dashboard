@@ -4,7 +4,9 @@ using jitu_dashboard.Server.EFRepository;
 using jitu_dashboard.Server.Models;
 using jitu_dashboard.Server.Repository;
 using jitu_dashboard.Server.Repository.Payment;
+using jitu_dashboard.Server.Repository.PaymentHistory;
 using jitu_dashboard.Server.Services.Payment;
+using jitu_dashboard.Server.Services.PaymentHistory;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,8 +27,12 @@ builder.Services.AddSwaggerGen();
 
 // Register repositories and services
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped(typeof(IPaymentRepository), typeof(PaymentRepository));
-builder.Services.AddScoped(typeof(IPaymentService), typeof(PaymentService));
+
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
+builder.Services.AddScoped<IPaymentHistoryRepository, PaymentHistoryRepository>();
+builder.Services.AddScoped<IPaymentHistoryService, PaymentHistoryService>();
 
 var app = builder.Build();
 

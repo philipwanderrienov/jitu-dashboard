@@ -1,24 +1,25 @@
-using jitu_dashboard.Server.Models;
-using Microsoft.AspNetCore.Mvc;
-using jitu_dashboard.Server.Message.Request;
 using jitu_dashboard.Server.Message.Response;
-using jitu_dashboard.Server.Services.Payment;
+using jitu_dashboard.Server.Services.PaymentHistory;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace jitu_dashboard.Server.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class PaymentController : ControllerBase
+    public class PaymentHistoryController : ControllerBase
     {
         private readonly ILogger<PaymentHistoryController> _logger;
-        private readonly IPaymentService _serviceTransferOutright;
+        private readonly IPaymentHistoryService _serviceTransferOutright;
 
-        public PaymentController(IPaymentService serviceTransferOutright)
+        public PaymentHistoryController(ILogger<PaymentHistoryController> logger, 
+                                        IPaymentHistoryService serviceTransferOutright)
         {
+            _logger = logger;
             _serviceTransferOutright = serviceTransferOutright;
         }
 
-        [HttpGet(Name = "retrievePayment")]
+        [HttpGet(Name = "retrievePaymentHistory")]
         // public async Task<IActionResult> Retrieve(RequestModel requestModel)
         public async Task<IActionResult> Retrieve()
         {

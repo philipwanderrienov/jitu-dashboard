@@ -36,9 +36,9 @@
     <Folder Include="Message\Request\" />
     <Folder Include="Message\Response\" />
     <Folder Include="Models\" />
-    <Folder Include="Repository\" />
     <Folder Include="Repository\Payment\" />
     <Folder Include="Services\" />
+    <Folder Include="Services\PaymentHistory\" />
     <Folder Include="Services\Payment\" />
   </ItemGroup>
 
