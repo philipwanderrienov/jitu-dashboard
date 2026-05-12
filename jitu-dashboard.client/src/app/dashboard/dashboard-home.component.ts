@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ChartModule } from 'primeng/chart';
-import { TableModule } from 'primeng/table';
+import { Table, TableModule } from 'primeng/table';
 
 type PaymentRow = {
   trn: string | null;
@@ -51,7 +51,7 @@ export class DashboardHomeComponent implements OnInit {
   paymentTotalAmount = 0;
   paymentHistoryTotalAmount = 0;
 
-  pieData: ChartData<'doughnut'> = {
+  pieData: ChartData<'pie'> = {
     labels: ['Payment', 'PaymentHistory'],
     datasets: [
       {
@@ -61,9 +61,14 @@ export class DashboardHomeComponent implements OnInit {
     ]
   };
 
-  pieOptions: ChartOptions<'doughnut'> = {
+  pieOptions: ChartOptions<'pie'> = {
     responsive: true,
-    cutout: '72%',
+    animation: {
+      duration: 900,
+      easing: 'easeOutQuart',
+      animateRotate: true,
+      animateScale: true
+    },
     plugins: {
       legend: {
         position: 'bottom',

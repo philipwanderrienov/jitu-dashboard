@@ -46,7 +46,7 @@
 
           <ng-template #pieBody>
             <ng-container *ngIf="paymentTotalAmount > 0 || paymentHistoryTotalAmount > 0; else pieNoData">
-              <p-chart type="doughnut" [data]="pieData" [options]="pieOptions"></p-chart>
+              <p-chart type="pie" [data]="pieData" [options]="pieOptions"></p-chart>
             </ng-container>
 
             <ng-template #pieNoData>
@@ -78,35 +78,45 @@
           <div class="panel__loading">Loading...</div>
         </ng-container>
 
-          <ng-template #gridBody>
+        <ng-template #gridBody>
           <ng-container *ngIf="displayedRows.length > 0; else gridNoData">
-            <p-table [value]="displayedRows" [paginator]="true" [rows]="10">
-              <ng-template pTemplate="header">
-                <tr>
-                  <th>TRN</th>
-                  <th>RELTRN</th>
-                  <th>TXCODE</th>
-                  <th>TXTYPEID</th>
-                  <th>PRIORITY</th>
-                  <th>BUSDATE</th>
-                  <th>AMOUNT</th>
-                  <th>CURRENCY</th>
-                </tr>
-              </ng-template>
+            <div class="card">
+              <p-table
+                [value]="displayedRows"
+                [paginator]="true"
+                [rows]="10"
+                [style]="{ 'background-color': '#FFFFFF' }"
+                [tableStyle]="{ 'min-width': '50rem', 'background-color': '#FFFFFF' }"
+                [size]="'small'"
+                [showGridlines]="true"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th style="text-align: center;">TRN</th>
+                    <th style="text-align: center;">RELTRN</th>
+                    <th style="text-align: center;">TXCODE</th>
+                    <th style="text-align: center;">TXTYPEID</th>
+                    <th style="text-align: center;">PRIORITY</th>
+                    <th style="text-align: center;">BUSDATE</th>
+                    <th style="text-align: center;">AMOUNT</th>
+                    <th style="text-align: center;">CURRENCY</th>
+                  </tr>
+                </ng-template>
 
-              <ng-template pTemplate="body" let-row>
-                <tr>
-                  <td>{{ row?.trn }}</td>
-                  <td>{{ row?.relTrn }}</td>
-                  <td>{{ row?.txCode }}</td>
-                  <td>{{ row?.txTypeId }}</td>
-                  <td>{{ row?.priorityId }}</td>
-                  <td>{{ row?.busDate }}</td>
-                  <td>{{ row?.amount }}</td>
-                  <td>{{ row?.currency }}</td>
-                </tr>
-              </ng-template>
-            </p-table>
+                <ng-template pTemplate="body" let-row>
+                  <tr>
+                    <td>{{ row?.trn }}</td>
+                    <td>{{ row?.relTrn }}</td>
+                    <td>{{ row?.txCode }}</td>
+                    <td>{{ row?.txTypeId }}</td>
+                    <td>{{ row?.priorityId }}</td>
+                    <td>{{ row?.busDate }}</td>
+                    <td>{{ row?.amount }}</td>
+                    <td>{{ row?.currency }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
           </ng-container>
 
           <ng-template #gridNoData>

@@ -114,3 +114,9 @@ D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\bin\Debug\net10.0\runtime
 D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\bin\Debug\net10.0\jitu-dashboard.Server.staticwebassets.runtime.json
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\obj\Debug\net10.0\compressed\b2myfpglct-{0}-vagikyz9qx-vagikyz9qx.gz
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\obj\Debug\net10.0\compressed\svpvc6uj6g-{0}-g4k4ysn14e-g4k4ysn14e.gz
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\obj\Debug\net10.0\compressed\kqk2x30dta-{0}-l82598jerm-l82598jerm.gz
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\obj\Debug\net10.0\compressed\gknr163yyq-{0}-1dks0wz7uz-1dks0wz7uz.gz
+D:\jitu-dashboard\jitu-dashboard\jitu-dashboard.Server\obj\Debug\net10.0\compressed\h0qsonfgff-{0}-u69ctnq004-u69ctnq004.gz

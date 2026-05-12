@@ -36,8 +36,8 @@ builder.Services.AddScoped<IPaymentHistoryService, PaymentHistoryService>();
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 app.UseDefaultFiles();
-app.MapStaticAssets();
 
 if (app.Environment.IsDevelopment())
 {

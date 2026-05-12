@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("jitu-dashboard.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a308beb2c5b1a26b752e4f9a9f03b642a1097020")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28a678b60342688b1156d91f638b9894e891fe0a")]
 [assembly: System.Reflection.AssemblyProductAttribute("jitu-dashboard.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("jitu-dashboard.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

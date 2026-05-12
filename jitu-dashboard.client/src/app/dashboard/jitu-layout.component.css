@@ -110,6 +110,10 @@
   grid-template-columns: 240px 1fr;
   align-items: stretch;
   min-height: 100vh;
+
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 @media (max-width: 900px) {
@@ -220,6 +224,10 @@
 /* Content area */
 .dash-content {
   padding: 22px 22px 0 22px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 /* Footer */

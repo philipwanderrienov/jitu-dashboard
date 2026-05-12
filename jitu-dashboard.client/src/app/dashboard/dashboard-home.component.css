@@ -1,5 +1,7 @@
 .page {
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .page__top {
@@ -48,11 +50,12 @@
 /* Grid like the sample */
 .page__grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
+  max-width: 100%;
+  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
   gap: 18px;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1100px) {
   .page__grid {
     grid-template-columns: 1fr;
   }
@@ -66,6 +69,7 @@
   box-shadow: 0 6px 18px rgba(10, 20, 40, 0.04);
   padding: 16px;
   min-height: 160px;
+  min-width: 0; /* allow shrinking to prevent overflow */
 }
 
 .panel--table {
@@ -163,29 +167,55 @@
   font-size: 14px;
 }
 
-/* PrimeNG table tweaks */
-:host ::ng-deep .p-table {
-  border: none !important;
-  background: transparent !important;
+/* Force PrimeNG datatable in this dashboard to be light (overrides Aura dark surfaces) */
+:global(.p-table),
+:global(.p-datatable) {
+  background: #ffffff !important;
+  color: #111827 !important;
 }
 
-:host ::ng-deep .p-datatable-thead > tr > th {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: #6b7280;
-  font-weight: 900;
-  border-bottom: 1px solid #eef2f7;
-  background: transparent;
+:global(.p-datatable .p-datatable-wrapper),
+:global(.p-table .p-table-wrapper),
+:global(.p-datatable .p-datatable-tbody),
+:global(.p-table .p-tbody) {
+  background: #ffffff !important;
+  color: #111827 !important;
 }
 
-:host ::ng-deep .p-datatable-tbody > tr > td {
-  font-size: 12px;
-  font-weight: 700;
-  color: #111827;
-  border-bottom: 1px solid #eef2f7;
+:global(.p-datatable-thead > tr > th),
+:global(.p-table-thead > tr > th) {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
-:host ::ng-deep .p-paginator {
-  border: none !important;
-  background: transparent !important;
+:global(.p-datatable-tbody > tr > td),
+:global(.p-table-tbody > tr > td) {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-top: 1px solid #eef2f7 !important;
+}
+
+/* Paginator */
+:global(.p-paginator),
+:global(.p-paginator-bottom),
+:global(.p-paginator .p-paginator-page) {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #e5e7eb !important;
+}
+
+:global(.p-paginator .p-paginator-page.p-highlight),
+:global(.p-paginator .p-paginator-page.p-highlight:hover) {
+  background: #d1fae5 !important;
+  color: #064e3b !important;
+  border-color: #a7f3d0 !important;
+}
+
+/* Center text for dashboard datatable headers/cells */
+:global(.page .p-datatable th),
+:global(.page .p-datatable td),
+:global(.page .p-table th),
+:global(.page .p-table td) {
+  text-align: center !important;
 }
